@@ -1,0 +1,3 @@
+https://www.onlinetutorialspoint.com/spring-boot/spring-boot-h2-database-jdbc-example.html
+
+https://www.linkedin.com/pulse/filter-vs-interceptor-spring-boot-omar-ismail - Difference between Filters and Interceptors

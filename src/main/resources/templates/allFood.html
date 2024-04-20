@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All food</title>
+</head>
+<body>
+<h2>Food list</h2>
+<table>
+    <thead>
+    <tr>
+        <th> Name </th>
+        <th> kcal </th>
+        <th> Food type </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${allFoodList.empty}">
+        <td colspan="2"> No Food Available </td>
+    </tr>
+    <tr th:each="food : ${allFoodList}">
+        <td><span th:text="${food.name}"> Name </span></td>
+        <td><span th:text="${food.kcal}"> kcal </span></td>
+        <td><span th:text="${food.foodType}"> Food type </span></td>
+    </tr>
+    </tbody>
+</table>
+<form action="#" th:action="@{/food/saveNewFood.html}" th:object="${newFood}"
+      method="post">
+    <fieldset>
+        <input type="submit" id="submitButton" th:value="Save">
+        <input type="reset" id="resetButton" name="reset" th:value="Reset"/>
+        <table>
+            <thead>
+            <tr>
+                <th> Name </th>
+                <th> kcal </th>
+                <th> Food type </th>
+            </tr>
+            </thead>
+            <tbody>
+                <td><input th:field="*{name}" required="required"/></td>
+                <td><input th:field="*{kcal}" required="required" /></td>
+                <td><input th:field="*{foodType}" required="required" /></td>
+            </tbody>
+        </table>
+    </fieldset>
+    <a href="#" th:href="@{/food/cleanSession.html}">Log Out</a>
+</form>
+
+
+</body>
+</html>
